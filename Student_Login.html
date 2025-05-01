@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,51 +8,54 @@
     </head>
     <body>
         <div class="container" id="login-container">
-        <div class="left-section">
-            <img src="./assets/photo.jpg" alt="Back to School" />
-        </div>
-        <div class="right-section">
-            <div class="logo">
-            <div class="logo-circle">AF</div>
-            <div><span style="font-weight: bold;">Student</span> <span style="color: #f25c54;">Login</span></div>
+            <!-- img section -->
+            <div class="left-section">
+                <img src="./assets/photo.jpg" alt="Back to School" />
             </div>
-            <div class="form-title">Login</div>
-            <form onsubmit="handleLogin(event)">
-            <div class="input-group">
-                <label for="reg-number">Registration number*</label>
-                <input type="text" id="reg-number" required />
+            <!-- form section -->
+            <div class="right-section">
+                <div class="logo">
+                    <div class="logo-circle">AF</div>
+                    <div>
+                        <span class="left-text">تسجيل</span> 
+                        <span class="right-text" >الدخول</span>
+                    </div>
+                </div>
+                <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="reg-number">رقم التسجيل*</label>
+                    <input type="text" id="reg-number" required />
+                </div>
+                <div class="input-group">
+                    <label for="password">كلمة السر*</label>
+                    <input type="password" id="password" required />
+                </div>
+                <button type="submit" class="login-btn">تسجيل الدخول </button>
+                </form>
+                <div class="forgot-password">هل نسيت كلمة المرور ؟</div>
             </div>
-            <div class="input-group">
-                <label for="password">Password*</label>
-                <input type="password" id="password" required />
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-            </form>
-            <div class="forgot-password">forgot password?</div>
-        </div>
-        </div>  <div class="welcome" id="welcome-message">
-        Welcome back, student!
         </div>  
+        
+
         <script>
-        const users = [
-            { reg: '12345', pass: 'password123' },
-            { reg: '2024med', pass: 'human123' },
-        ];
+            const users = [
+                { reg: '12345', pass: 'password123' },
+                { reg: '2024med', pass: 'human123' },
+            ];
 
-        function handleLogin(event) {
-            event.preventDefault();
-            const reg = document.getElementById('reg-number').value;
-            const pass = document.getElementById('password').value;
+            function handleLogin(event) {
+                event.preventDefault();
+                const reg = document.getElementById('reg-number').value;
+                const pass = document.getElementById('password').value;
 
-            const user = users.find(u => u.reg === reg && u.pass === pass);
+                const user = users.find(u => u.reg === reg && u.pass === pass);
 
-            if (user) {
-            document.getElementById('login-container').style.display = 'none';
-            document.getElementById('welcome-message').style.display = 'block';
-            } else {
-            alert('Incorrect registration number or password.');
+                if (user) {
+                    alert('correct registration .');
+                } else {
+                    alert('Incorrect registration number or password.');
+                }
             }
-        }
         </script>
     </body>
 </html>
